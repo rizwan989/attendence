@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="" class="aleena" method="post">
+        <h1>STUDENTS</h1>
+       <div> <input type="text" placeholder="First name"name='First_name'></div>
+       <div> <input type="text" placeholder="Second name"name='Second_name'></div>
+       <div> <input type="number" placeholder="Age"name=Age></div>
+       <div> <input type="text" placeholder="username"name=username></div>
+       <div> <input type="password" placeholder="password"name=password></div>
+       Gender <input type="radio" id="male" name="Gender" value="male"> <label for="male">male</label>
+       <input type="radio" id="female" name="Gender" value="female"> <label for="female">female</label>
+       <input type="radio" id="others" name="Gender" value="others"> <label for="others">others</label>
+
+
+
+       <div> 
+        <label for="department">Department:</label>
+        <select name="Department" id="department">
+            {%for i in dept%}
+            <option value="{{i.id}}">{{i.department_name}}</option>
+            {%endfor%}
+        </select>
+       </div>
+       <div> <button type="submit">submit</button></div>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>manage notification</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <th>id</th>
+            <th>notification</th>
+            <th>date&time</th>
+            <th>manage</th>
+        </tr>
+        {%for i in obj %}
+
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.message}}</td>
+            <td>{{i.created_at}}</td>
+            <td>
+                <a href="#" class="edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                <a href="/deletenot/{{i.id}}" class="delete" onclick="return confirm('are u sure u want to delete')"><i class="fa-solid fa-trash"></i></a>
+            </td>
+            {%endfor%}
+
+        </tr>
+    </table>
+    <a href="/addnotificaton" class="add">Add notification<i class="fa-solid fa-plus"></i></a>
+
+    
+</body>
+</html>

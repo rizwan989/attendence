@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANAGE STAFF</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+        <table class="table">
+            <tr>
+                <th>id</th>
+                <th>first_name</th>
+                <th>second_name</th>
+                <th>DEPARTMENT</th>
+                <th>Gender</th>
+                <th>qualification</th>
+                <th>Age</th>
+                <th>contact</th>
+                <th>manage</th>
+
+
+        
+            </tr>
+            {%for i in obj %}
+
+            <tr>
+
+                <td>{{forloop.counter}}</td>
+                <td>{{i.first_name}}</td>
+                <td>{{i.second_name}}</td>
+                <td>{{i.DEPARTMENT}}</td>
+                <td>{{i.Gender}}</td>
+                <td>{{i.qualification}}</td>
+                <td>{{i.Age}}</td>
+                <td>{{i.contact}}</td>
+                <td>
+                    <a href="/editstaff/{{i.id}}" class="edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href="/deletestaff/{{i.id}}" class="delete" onclick="return confirm('are u sure u want to delete')" class="delete"><i class="fa-solid fa-trash"></i></a>
+
+                </td>
+            </tr>
+            {%endfor%}
+
+        </table>
+        <a href="addstaff" class="add">Add staff <i class="fa-solid fa-plus"></i></a>
+
+</body>
+</html>

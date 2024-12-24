@@ -1,0 +1,94 @@
+body{
+    display: flex;
+    justify-content:center ;
+    height: 100vh;
+    align-items: center;
+    background-image:url(https://img.freepik.com/free-photo/desk-workspace-with-various-elements_23-2148043224.jpg?t=st=1733895362~exp=1733898962~hmac=7917f59f92e8475fcdface1147a203fac3c3e0be6fbb4ae84bbffc9ccefd0b11&w=900);
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position:center;
+}    
+.aleena{
+    background-color:rgba(255, 255, 255, 0.504);
+    width: 250px;
+    padding: 90px;
+    border-radius:  25px;
+    box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.537);
+
+}
+
+input, select, textarea{
+    width: 100%;
+    margin-top: 20px;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    outline: none;
+}
+h1{
+    text-align: center;
+    font-size: 25px;
+}
+
+button{
+    width: 107%;
+    margin-top: 30px;
+    padding: 8px;
+    border-radius: 15;
+    border: 1px solid black;
+    background-color: transparent;
+    transition: 0.3s;
+}
+
+button:hover{
+    background-color: white;
+}
+
+th,td{
+    border: 1px solid black;
+    padding: 15px;
+    text-align: center;
+}
+
+.table{
+    border-collapse: collapse;
+    width: 700px;
+    margin-bottom: 180px;
+    position: relative;
+}
+
+.edit{
+    color: white;
+    background-color: black;
+    padding: 5px;
+    transition: 0.3s;
+}
+.edit:hover{
+    color: black;
+    background-color: white;
+}
+
+.delete{
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.delete:hover{
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+}
+
+.add{
+    padding: 10px;
+    text-decoration: none;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+    position: absolute;
+    top: 150px;
+}
+
+
