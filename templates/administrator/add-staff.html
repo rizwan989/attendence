@@ -1,10 +1,13 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STAFF</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <form action="" class="aleena" method="post">
@@ -15,13 +18,14 @@
        <div> <input type="password" placeholder="password"name=password></div>
        <div> <input type="number" placeholder="age" name="age"></div>
        <div> <input type="number" placeholder="contact" name="contact"></div>
+       <div> <input type="tel" placeholder="qualification" name="qualification"></div>
        Gender <input type="radio" id="male" name="gender" value="male"> <label for="male">male</label>
-       <input type="radio" id="female" name="Gender" value="female"> <label for="female">female</label>
-       <input type="radio" id="others" name="Gender" value="others"> <label for="others">others</label>
+       <input type="radio" id="female" name="gender" value="female"> <label for="female">female</label>
+       <input type="radio" id="others" name="gender" value="others"> <label for="others">others</label>
 
        <div> 
-        <label for="department">Department:</label>
-        <select name="Department" id="department">
+        <label>Department:</label>
+        <select name="DEPARTMENT">
             {%for i in val%}
             <option value="{{i.id}}">{{i.department_name}}</option>
             {%endfor%}

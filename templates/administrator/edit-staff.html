@@ -1,30 +1,36 @@
+{% load static %}
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STAFF</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <form action="" class="aleena">
+    <form action="" class="aleena" method="post">
+        {%csrf_token%}
         <h1>STAFF</h1>
        <div> <input type="text" placeholder="first_name" name="first_name" value="{{a.first_name}}"></div>
        <div> <input type="text" placeholder="second_name" name="second_name" value="{{a.second_name}}"></div>
-       <div> <input type="text" placeholder="username"name=username  value="{{a.username}}"></div>
-       <div> <input type="password" placeholder="password"name=password  value="{{a.password}}"></div>
+       <div> <input type="text" placeholder="username"name=username  value="{{a.LOGIN_ID.username}}"></div>
+       <div> <input type="password" placeholder="password"name=password  value="{{a.LOGIN_ID.password}}"></div>
        <div> <input type="number" placeholder="age" name="age"  value="{{a.age}}"></div>
        <div> <input type="number" placeholder="contact" name="contact"  value="{{a.contact}}"></div>
-       Gender <input type="radio" id="male" name="gender" value="male"> <label for="male">male</label>
-       <input type="radio" id="female" name="Gender" value="female"> <label for="female">female</label>
-       <input type="radio" id="others" name="Gender" value="others"> <label for="others">others</label>
+       <div> <input type="text" placeholder="qualification" name="qualification"  value="{{a.qualification}}"></div>
+       Gender <input type="radio" id="male" name="gender" value="male" {% if a.gender == 'male' %} checked {% endif %}> <label for="male">male</label>
+       <input type="radio" id="female" name="Gender" value="female" {% if a.gender == 'female' %} checked {% endif %}><label for="female">female</label>
+       <input type="radio" id="others" name="Gender" value="others"> <label for="others" {% if a.gender == 'others' %} checked {% endif %}></label>>others</label>
 
        <div> 
-        <select name="" id="">
-            <option value="">feddf</option>
-            <option value="">feddf</option>
-            <option value="">feddf</option>
-            <option value="">feddf</option>
+        <select name="DEPARTMENT" id="">
+            {% for i in c %}
+            <option value="{{i.id}}" {% if i.id == a.DEPARTMENT.id %} selected {% endif %}>{{i.department_name}}</option>
+            {% endfor %}
         </select>
        </div>
        <div> <button type="submit">edit</button></div>

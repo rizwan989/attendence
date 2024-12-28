@@ -1,24 +1,28 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STUDENT</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <form action="" class="aleena">
+    <form action="" class="aleena" method="post">
         <h1>STUDENTS</h1>
-       <div> <input type="text" placeholder="enter students name"></div>
-       <div> <input type="number" placeholder="phone no"></div>
-       <div> <input type="text" placeholder="roll no"></div>
-       <div> <input type="email" placeholder="email"></div>
+       <div> <input type="text" placeholder="first_name" name="First_name" value="{{i.First_name}}"></div>
+       <div> <input type="text" placeholder="second_name" name="Second_name" value="{{i.Second_name}}"></div>
+       <div> <input type="number" placeholder="Age" name="Age" value="{{i.Age}}"></div>
+       Gender <input type="radio" id="male" name="Gender" value="male" {% if a.gender == 'male' %} checked {% endif %}> <label for="male">male</label>
+       <input type="radio" id="female" name="Gender" value="female" {% if a.gender == 'female' %} checked {% endif %}><label for="female">female</label>
+       <input type="radio" id="others" name="Gender" value="others" {% if a.gender == 'others' %} checked {% endif %}></label for="others">others</label>
        <div> 
-        <select name="" id="">
-            <option value="">feddf</option>
-            <option value="">feddf</option>
-            <option value="">feddf</option>
-            <option value="">feddf</option>
+        <select name="Department" id="">
+            {% for i in c %}
+            <option value="{{i.id}}" {% if i.id == a.Department.id %} selected {% endif %}>{{i.department_name}}</option>
+            {% endfor %}
         </select>
        </div>
        <div> <button type="submit">edit</button></div>

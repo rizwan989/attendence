@@ -5,6 +5,7 @@ from .views import *
 
 urlpatterns = [
     path('', login_page.as_view(), name='login_page'),
+    path('logout', logout.as_view()),
 
     # ////////////////////////////////////////  ADMIN /////////////////////////////////////////////////////
 
@@ -18,11 +19,11 @@ urlpatterns = [
 
     path('dashboard', Admin_dashboard.as_view(), name='dashboard'),
 
-    path('editdept', Edit_dept.as_view(), name='editstaff'),
+    path('editdept/<int:pk>', Edit_dept.as_view(), name='editstaff'),
 
     path('editstaff/<int:pk>', Edit_staff.as_view(), name='editstaff'),
 
-    path('editstudent', Edit_student.as_view(), name='editstudent'),
+    path('editstudent/<int:pk>', Edit_student.as_view(), name='editstudent'),
 
     path('managedept', Manage_department.as_view(), name='managedept'),
 
@@ -31,7 +32,7 @@ urlpatterns = [
     path('managestudent', Manage_student.as_view(), name='managestudent'),
     
 
-    path('replycomplaints', Reply_complaints.as_view(), name='replycomplaints'),
+    path('replycomplaints/<int:pk>/', Reply_complaints.as_view(), name='replycomplaints'),
 
 
     path('viewcomplaintssendreply', View_complaint_send_reply.as_view(), name='viewcomplaintsendreply'),

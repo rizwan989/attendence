@@ -17,6 +17,11 @@ class login_page(View):
         login_obj=Login_model.objects.get(username=username,password=password)
         if login_obj.usertype=="admin":
             return HttpResponse('''<script>alert("welcome to a");window.location="/dashboard"</script>''')
+        
+
+class logout(View):
+    def get(self,request):
+        return HttpResponse('''<script>alert("logout successfully");window.location='/'</script>''')
     
 # //////////////////////////////////////////////// ADMIN //////////////////////////////////////////
 
@@ -29,9 +34,6 @@ class Add_staff(View):
         if c.is_valid():
             f=c.save(commit=False)
             obj = Login_model.objects.create(username=request.POST['username'], password=request.POST['password'],usertype="staff")
-            dept=departrment_model.objects.get(id=request.POST['Department'])
-            print(dept)
-            f.Department=dept
             f.LOGIN_ID=obj
             f.save()
             return HttpResponse('''<script>alert("staff added");window.location="/managestaff"</script>''')
@@ -66,8 +68,6 @@ class Add_student(View):
         if c.is_valid():
             f=c.save(commit=False)
             obj = Login_model.objects.create(username=request.POST['username'], password=request.POST['password'],usertype="student")
-            dept=departrment_model.objects.get(id=request.POST['Department'])
-            f.Department=dept
             f.LOGIN_ID=obj
             f.save()
             return HttpResponse('''<script>alert("student added");window.location="/managestudent"</script>''')
@@ -79,20 +79,45 @@ class Admin_dashboard(View):
     
 
 class Edit_dept(View):
-    def get(self,request):
-        return render(request,'administrator/edit_dept.html')   
+    def get(self,request, pk):
+        obj = departrment_model.objects.get(id=pk)
+        return render(request,'administrator/edit_dept.html',{'c':obj}) 
+    def post(self,request,pk):
+        c=departrment_model.objects.get(id=pk)
+        b=Add_dept_form(request.POST,instance=c)
+        if b.is_valid():
+            b.save()
+            return HttpResponse('''<script>alert("department updated");window.location="/managedept"</script>''')  
 
 
 class Edit_staff(View):
     def get(self,request, pk):
         obj = staff_model.objects.get(id=pk)
-        return render(request,'administrator/edit-staff.html',{'a':obj})  
+        d=departrment_model.objects.all()
+        return render(request,'administrator/edit-staff.html',{'a':obj, 'c':d})  
+    def post(self,request,pk):
+        c=staff_model.objects.get(id=pk)
+        b=Add_staff_form(request.POST,instance=c)
+        if b.is_valid():
+            b.save()
+            return HttpResponse('''<script>alert("staff updated");window.location="/managestaff"</script>''')
+
     
 
 
 class Edit_student(View):
-    def get(self,request):
-        return render(request,'administrator/edit-students.html') 
+    def get(self,request,pk):
+        obj = student_model.objects.get(id=pk)
+        d=departrment_model.objects.all()
+        return render(request,'administrator/edit-students.html',{'i':obj, 'c':d}) 
+    def post(self,request,pk):
+        c=student_model.objects.get(id=pk)
+        b=Add_student_form(request.POST,instance=c)
+        if b.is_valid():
+            b.save()
+            return HttpResponse('''<script>alert("students updated");window.location="/managestudent"</script>''')
+
+    
 
 
 class Manage_department(View):
@@ -116,14 +141,22 @@ class Manage_student(View):
 
 
 class Reply_complaints(View):
-    def get(self,request):
-        return render(request,'administrator/Reply_complaint.html')    
+    def get(self,request,pk):
+        obj = Complaint_model.objects.get(id=pk)
+        return render(request,'administrator/Reply_complaint.html',{'i':obj})    
+    def post(self,request,pk):
+        c=Complaint_model.objects.get(id=pk)
+        b=reply_form(request.POST,instance=c)
+        if b.is_valid():
+            b.save()
+            return HttpResponse('''<script>alert("complaint replied");window.location="/viewcomplaintssendreply"</script>''')
     
 
 
 class View_complaint_send_reply(View):
     def get(self,request):
-        return render(request,'administrator/view-complaint-send-reply.html')   
+        c=Complaint_model.objects.all()
+        return render(request,'administrator/view-complaint-send-reply.html',{'obj':c},)   
     
 
 class manage_notification(View):
@@ -161,6 +194,7 @@ class deletestaff(View):
         print(c)
         c.delete()
         return HttpResponse('''<script>alert("deleted successfully");window.location="/managestaff"</script>''')
+    
 
 
 
