@@ -17,6 +17,8 @@ class login_page(View):
         login_obj=Login_model.objects.get(username=username,password=password)
         if login_obj.usertype=="admin":
             return HttpResponse('''<script>alert("welcome to a");window.location="/dashboard"</script>''')
+        elif login_obj.usertype=="hod":
+            return HttpResponse('''<script>alert("welcome to a");window.location="/hoddash"</script>''')
         
 
 class logout(View):
@@ -33,7 +35,7 @@ class Add_staff(View):
         c=Add_staff_form(request.POST)
         if c.is_valid():
             f=c.save(commit=False)
-            obj = Login_model.objects.create(username=request.POST['username'], password=request.POST['password'],usertype="staff")
+            obj = Login_model.objects.create(username=request.POST['username'], password=request.POST['password'],usertype=request.POST['usertype'])
             f.LOGIN_ID=obj
             f.save()
             return HttpResponse('''<script>alert("staff added");window.location="/managestaff"</script>''')
@@ -206,6 +208,46 @@ class Approve_daily_leave(View):
         return render(request,'hod/approve_daily_leave.html')   
     
 
+class Manage_subjects(View):
+    def get(self,request):
+     obj1=subject_model.objects.all()
+     return render(request,'hod/manage-subjects.html',{'obj1':obj1})
+    
+    
+    
+class add_subject (View):
+    def get(self,request):
+        obj1=departrment_model.objects.all()
+        return render(request,'hod/add_subject.html',{'obj1':obj1})
+    def post(self,request):
+        form = SubjectForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('''<script>alert("subject added successfully");window.location="/subject"</script>''')
+
+class delete_subjects(View):
+    def get(self,request,id):
+     obj1=subject_model.objects.get(id=id)
+     obj1.delete()
+     return HttpResponse('''<script>alert("deleted successfully");window.location="/subject"</script>''')
+
+
+
+
+
+class assign_subject (View):
+    def get(self,request):
+        obj1=departrment_model.objects.all()
+        obj2=staff_model.objects.all()
+        obj3=subject_model.objects.all()
+
+        return render(request,'hod/add_subject.html',{'obj1':obj1, 'obj2':obj2, 'obj3':obj3})
+
+   
+
+
+    
+
 class Change_password(View):
     def get(self,request):
         return render(request,'hod/changepassword.html')   
@@ -227,10 +269,6 @@ class Notification(View):
         return render(request,'hod/manage-niotification.html')   
     
 
-class Manage_subjects(View):
-    def get(self,request):
-        return render(request,'hod/manage-subjects.html')   
-    
 
 class View_attendence_marked(View):
     def get(self,request):

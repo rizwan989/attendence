@@ -1,26 +1,29 @@
-<!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>manage subjects</title>
-    <link rel="stylesheet" href="../admin/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <div class="cont">
     <table class="table">
         <tr>
-            <th>hour</th>
             <th>subject</th>
-            <th>teacher</th>
-            <th>manage</th>
         </tr>
+        {% for i in obj1%}
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{i.subject}}</td>
+           
             <td>
-                <a href="#">save</a>
-                <a href="#">edit</a>
+                <a href="dlte_sub/{{i.id}}">delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>
+                <a href="/addsub">add new subject</a>
             </td>
         </tr>
     </table>

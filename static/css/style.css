@@ -3,18 +3,20 @@ body{
     justify-content:center ;
     height: 100vh;
     align-items: center;
-    background-image:url(https://img.freepik.com/free-photo/desk-workspace-with-various-elements_23-2148043224.jpg?t=st=1733895362~exp=1733898962~hmac=7917f59f92e8475fcdface1147a203fac3c3e0be6fbb4ae84bbffc9ccefd0b11&w=900);
+    background-image:url('https://img.freepik.com/premium-photo/beautiful-architecture-king-s-college-chapel-cambridge-uk_1339-135072.jpg?w=900');
     background-repeat:no-repeat;
     background-size: cover;
     background-position:center;
+    backdrop-filter: blur(10px);
 }    
 .aleena{
     background-color:rgba(255, 255, 255, 0.504);
-    width: 250px;
+    width: 500px;
     padding: 90px;
     border-radius:  25px;
     box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.537);
-
+    position: absolute;
+    bottom: 80px;
 }
 
 input, select, textarea{
@@ -45,13 +47,13 @@ button:hover{
     background-color: white;
 }
 
-th,td{
+/* th,td{
     border: 1px solid black;
     padding: 15px;
     text-align: center;
-}
+} */
 
-.table{
+.tabl{
     border-collapse: collapse;
     width: 700px;
     margin-bottom: 180px;
@@ -91,3 +93,23 @@ th,td{
     top: 150px;}
 
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cont{
+    width: 100vw;
+    background-image:url('https://img.freepik.com/free-photo/abstract-blur-defocused-bookshelf-library_1203-9635.jpg?t=st=1735798868~exp=1735802468~hmac=a8f0c1ad7585363017283acdd91d1079ec99334e1fdad21af3d7863b00a21a72&w=900');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position:center;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content:center ;
+    padding: 80px;
+    height: 200vh;
+    align-items: center;
+    position: relative;
+}

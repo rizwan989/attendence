@@ -51,12 +51,14 @@ class notification_model(models.Model):
     message=models.CharField(max_length=100,null=True,blank=True)
 
 class subject_model(models.Model):
-    STUDENT_ID = models.ForeignKey(student_model, on_delete=models.CASCADE, null=True, blank=True)
     subject=models.CharField(max_length=100,null=True,blank=True)
-    staff=models.CharField(max_length=100,null=True,blank=True)
     DEPARTMENT=models.ForeignKey(departrment_model,on_delete=models.CASCADE,null=True,blank=True)
-    period=models.IntegerField(null=True,blank=True)
+    created_at=models.DateField(auto_now_add=True)
 
+class allocation_model(models.Model):
+    Subject_ID = models.ForeignKey(subject_model, on_delete=models.CASCADE, null=True, blank=True)
+    Staff_ID = models.ForeignKey(staff_model, on_delete=models.CASCADE, null=True, blank=True)
+    created_at=models.DateTimeField(auto_now_add=True)
 
 class attendence_model(models.Model):
     STUDENTID = models.ForeignKey(student_model,on_delete=models.CASCADE, null=True, blank=True)

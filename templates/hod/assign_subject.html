@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            overflow: hidden;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 10px 0 5px;
+        }
+        input, select {
+            padding: 10px;
+            margin: 5px 0 15px;
+        }
+        button {
+            padding: 10px;
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Subject Form</h1>
+        <form method="POST">
+            <label for="subject">Subject</label>
+            <select>
+            {%for i in obj3 %}
+            <option>{{i.subject}}</option>
+            {%endfor%}
+            </select>
+            
+            <label for="staff">Staff</label>
+
+            <select>
+                {%for i in obj2 %}
+            <option>{{i.first_name}}</option>
+            {%endfor%}
+            </select>
+            
+            <label for="department">Department</label>
+            <select id="department" name="department">
+                {%for i in obj1 %}
+
+                <option>{{i.department_name}}</option>
+
+                {%endfor%}
+                <!-- Options will be dynamically populated -->
+            </select>
+
+            <label for="period">Period</label>
+            <input type="number" id="period" name="period">
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

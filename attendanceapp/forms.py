@@ -31,3 +31,8 @@ class reply_form(ModelForm):
     class Meta:
         model=Complaint_model
         fields=['reply']
+
+class SubjectForm(ModelForm):
+    class Meta:
+        model = subject_model
+        fields=['subject', 'DEPARTMENT']

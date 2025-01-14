@@ -10,12 +10,18 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <div class="cont">
     <form action="" class="aleena" method="post">
         <h1>STAFF</h1>
        <div> <input type="text" placeholder="first_name" name="first_name"></div>
        <div> <input type="text" placeholder="second_name" name="second_name"></div>
        <div> <input type="text" placeholder="username"name=username></div>
        <div> <input type="password" placeholder="password"name=password></div>
+       <div> <select name="usertype">
+        <option value="">please select staff type</option>
+        <option value="hod">HOD</option>
+        <option value="teacher">teacher</option>
+       </select></div>
        <div> <input type="number" placeholder="age" name="age"></div>
        <div> <input type="number" placeholder="contact" name="contact"></div>
        <div> <input type="tel" placeholder="qualification" name="qualification"></div>
@@ -36,5 +42,6 @@
 
 
     </form>
+</div>
 </body>
 </html>

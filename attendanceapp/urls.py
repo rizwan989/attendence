@@ -61,6 +61,7 @@ urlpatterns = [
 
     path('hoddash', Hoddash.as_view(), name='hoddash'),
 
+     path('addsub', add_subject.as_view(), name='addsub'),
 
     path('subjectallocated', Manage_subject_allocated.as_view(), name='subjectallocated'),
 
@@ -71,6 +72,9 @@ urlpatterns = [
     path('attendence', View_attendence_marked.as_view(), name='attendence'),
 
     path('profile', View_profile.as_view(), name='profile'),
+
+     path('dlte_sub/<int:id>', delete_subjects.as_view(), name='deletesub'),
+
 
 
 #//////////////////////////////////////////////////////////////////////////////
