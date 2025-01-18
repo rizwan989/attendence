@@ -70,4 +70,5 @@ class leave_model(models.Model):
     request=models.CharField(max_length=100,null=True,blank=True)
     date=models.CharField(max_length=100,null=True,blank=True)
     STUDENTID = models.ForeignKey(student_model,on_delete=models.CASCADE, null=True, blank=True)
+    leavestatus = models.CharField(max_length=100,null=True,blank=True)
                

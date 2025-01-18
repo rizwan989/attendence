@@ -1,32 +1,26 @@
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>manage subjects</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div class="cont">
-    <table class="table">
+{% extends 'hod/base.html' %}
+
+{% block body %}
+
+
+<div class="govt">
+    <div class="container-fluid d-flex justify-content-center">
+    <table class="table table-dark mt-5" style="width: 500px;">
         <tr>
             <th>subject</th>
+            <th>                <a href="/addsub" class="btn btn-outline-primary">add new subject</a>            </th>
         </tr>
         {% for i in obj1%}
         <tr>
             <td>{{i.subject}}</td>
            
             <td>
-                <a href="dlte_sub/{{i.id}}">delete</a>
+                <a href="dlte_sub/{{i.id}}" class="btn btn-danger" onclick="return confirm('are you sure u want to delete')">delete</a>
             </td>
         </tr>
         {% endfor %}
-        <tr>
-            <td>
-                <a href="/addsub">add new subject</a>
-            </td>
-        </tr>
-    </table>
-    
-</body>
-</html>
+    </table>    
+</div>
+</div>
+
+{% endblock %}

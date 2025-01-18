@@ -205,7 +205,27 @@ class deletestaff(View):
 
 class Approve_daily_leave(View):
     def get(self,request):
-        return render(request,'hod/approve_daily_leave.html')   
+        c=leave_model.objects.all()
+        return render(request,'hod/approve_daily_leave.html',{'obj1':c})   
+    
+class Accept_leave(View):
+    def get(self, request, C_id):
+            lev = leave_model.objects.filter(id=C_id).first()
+            print(lev)  # Fetch the instance
+            lev.leavestatus = 'Approve'  # Update the status
+            lev.save()  # Save the changes
+            return HttpResponse('''<script>alert("Accepted");window.location="/approve"</script>''')  
+    
+class Reject_leave(View):
+    def get(self, request, C_id):
+            lev = leave_model.objects.get(id=C_id)
+            print(lev)  # Fetch the instance
+            lev.leavestatus = 'Reject'  # Update the status
+            lev.save()  # Save the changes
+            return HttpResponse('''<script>alert("rejected");window.location="/approve"</script>''')  
+        
+        
+
     
 
 class Manage_subjects(View):

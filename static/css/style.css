@@ -1,12 +1,9 @@
-body{
-    display: flex;
-    justify-content:center ;
-    height: 100vh;
-    align-items: center;
+.govt{
     background-image:url('https://img.freepik.com/premium-photo/beautiful-architecture-king-s-college-chapel-cambridge-uk_1339-135072.jpg?w=900');
     background-repeat:no-repeat;
     background-size: cover;
     background-position:center;
+    height: 100vh;
     backdrop-filter: blur(10px);
 }    
 .aleena{
@@ -112,4 +109,39 @@ button:hover{
     height: 200vh;
     align-items: center;
     position: relative;
+}
+
+
+.container {
+    margin-top: 50px;
+    width: 50%;
+    margin: auto;
+    overflow: hidden;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.h1 {
+    text-align: center;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.label {
+    margin: 10px 0 5px;
+}
+.input, .select {
+    padding: 10px;
+    margin: 5px 0 15px;
+}
+.button {
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.button:hover {
+    background: #555;
 }

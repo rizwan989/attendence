@@ -1,4 +1,3 @@
-{% load static %}
 
 
 <!DOCTYPE html>
@@ -7,14 +6,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> LOGIN</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .govt{
+    display: flex;
+    justify-content:center ;
+    height: 100vh;
+    align-items: center;
+    background-image:url('https://img.freepik.com/premium-photo/beautiful-architecture-king-s-college-chapel-cambridge-uk_1339-135072.jpg?w=900');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position:center;
+    backdrop-filter: blur(10px);
+}    
+.aleena{
+    background-color:rgba(255, 255, 255, 0.504);
+    width: 500px;
+    padding: 90px;
+    border-radius:  25px;
+    box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.537);
+    position: absolute;
+    bottom: 80px;
+}
+
+input, select, textarea{
+    width: 100%;
+    margin-top: 20px;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    outline: none;
+}
+h1{
+    text-align: center;
+    font-size: 25px;
+}
+
+button{
+    width: 107%;
+    margin-top: 30px;
+    padding: 8px;
+    border-radius: 15;
+    border: 1px solid black;
+    background-color: transparent;
+    transition: 0.3s;
+}
+
+button:hover{
+    background-color: white;
+}
+
+    </style>
 </head>
 <body>
+    <div class="govt">
     <form action="" method="post">
     <h1>LOGIN</h1>
     <div><input type="text" placeholder="username" name="username"></div>
     <div><input type="password" placeholder="password" name="password"></div>
  <div><button type="submit">Login</button></div> 
     </form>
+</div>
 </body>
 </html> 

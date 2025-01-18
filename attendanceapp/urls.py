@@ -75,6 +75,10 @@ urlpatterns = [
 
      path('dlte_sub/<int:id>', delete_subjects.as_view(), name='deletesub'),
 
+     path('aleave/<int:C_id>', Accept_leave.as_view(), name='aleave'),
+
+     path('rleave/<int:C_id>', Reject_leave.as_view(), name='rleave'),
+
 
 
 #//////////////////////////////////////////////////////////////////////////////
