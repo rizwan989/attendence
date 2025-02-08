@@ -79,6 +79,11 @@ urlpatterns = [
 
      path('rleave/<int:C_id>', Reject_leave.as_view(), name='rleave'),
 
+     path('subject', subject.as_view(), name='subject'),
+
+     path('viewstaff', view_staff.as_view(), name='viewstaff'),
+
+
 
 
 #//////////////////////////////////////////////////////////////////////////////
@@ -97,7 +102,7 @@ urlpatterns = [
 
     path('notification', Notification.as_view(), name='notification'),
 
-    path('subjectallocated', Subject_allocated.as_view(), name='subjectallocated'),
+    path('viewsubjectallocated', Subject_allocated.as_view(), name='viewsubjectallocated'),
 
     path('profile', Viewandedit_profile.as_view(), name='profile'),
 

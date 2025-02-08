@@ -263,9 +263,6 @@ class assign_subject (View):
 
         return render(request,'hod/add_subject.html',{'obj1':obj1, 'obj2':obj2, 'obj3':obj3})
 
-   
-
-
     
 
 class Change_password(View):
@@ -281,7 +278,8 @@ class Hoddash(View):
 
 class Manage_subject_allocated(View):
     def get(self,request):
-        return render(request,'hod/manage_subject_allocated.html')   
+        obj1=subject_model.objects.all()
+        return render(request,'hod/manage_subject_allocated.html',{'obj1':obj1})   
     
 
 class Notification(View):
@@ -298,6 +296,19 @@ class View_attendence_marked(View):
 class View_profile(View):
     def get(self,request):
         return render(request,'hod/view-profile.html')   
+    
+
+
+class subject(View):
+    def get(self,request):
+        return render(request,'hod/subject.html')  
+
+class view_staff(View):
+    def get(self,request):
+        obj=staff_model.objects.all()
+        return render(request,'hod/view_staff.html',{'obj':obj})   
+     
+
     
 
     #////////////////////////////teacher///////////////////////////////////////

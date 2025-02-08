@@ -11,15 +11,14 @@
     <table class="table">
         <tr>
             <th>subjects</th>
-            <th>staff</th>
-            <th>manage</th>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+{%for i in obj1%}
+            <td>{{i.subject}}</td>
+
             <td>
-                <a href="#">save</a><br>
-                <a href="#">edit</a>
+                {%endfor%}
+                <a href="viewstaff">Assign</a>
             </td>
         </tr>
     </table>
